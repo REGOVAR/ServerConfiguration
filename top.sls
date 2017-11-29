@@ -12,5 +12,3 @@ base:
     - users
     - vcs
     - webservers
-
-    - biostar
