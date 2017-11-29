@@ -3,6 +3,7 @@
 ## Deployment as root on Debian
 
 ```sh
+sed -i 's@^#\(precedence ::ffff:0:0/96  100\)@\1@' /etc/gai.conf
 apt install salt-minion git
 mkdir -p /srv
 git clone https://github.com/REGOVAR/server_configuration.git /srv/salt
