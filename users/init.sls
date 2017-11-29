@@ -51,8 +51,8 @@ asdp:
 
 olivier:
   user.present:
-    - home: /home/arkanosis
-    - shell: /bin/bash
+    - home: /home/olivier
+    - shell: /usr/bin/zsh
     - uid: 1001
     - gid: 1001
     - groups:
@@ -60,5 +60,6 @@ olivier:
     - remove_groups: False
     - require:
       - group: olivier
+      - pkg: term.pkgs
   group.present:
     - gid: 1001
