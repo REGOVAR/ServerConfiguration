@@ -11,17 +11,17 @@ HostKey /etc/ssh/ssh_host_dsa_key
 HostKey /etc/ssh/ssh_host_ecdsa_key
 HostKey /etc/ssh/ssh_host_ed25519_key
 
-UsePAM yes
+UsePAM no
 HostbasedAuthentication no
 PasswordAuthentication no
-ChallengeResponseAuthentication yes
+ChallengeResponseAuthentication no
 PubkeyAuthentication yes
-AuthenticationMethods publickey,keyboard-interactive:pam
+AuthenticationMethods publickey
 
 PermitRootLogin no
 PermitEmptyPasswords no
 StrictModes yes
-AllowUsers arkanosis
+AllowUsers arkanosis asdp olivier
 
 LoginGraceTime 30
 MaxAuthTries 3
@@ -36,6 +36,3 @@ TCPKeepAlive yes
 AcceptEnv LANG LC_*
 
 Subsystem sftp /usr/lib/openssh/sftp-server
-
-Match Address 109.190.87.126,91.103.43.10,5.50.73.128
-      AuthenticationMethods publickey
