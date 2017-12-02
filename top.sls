@@ -7,6 +7,7 @@ base:
     - monitoring
     - network
     - python
+    - regovar
     - security
     - sources
     - system
