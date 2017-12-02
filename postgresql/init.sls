@@ -1,4 +1,4 @@
-databases.pkgs:
+postgresql.pkgs:
   pkg.installed:
     - pkgs:
       - postgresql-9.6
@@ -6,6 +6,6 @@ databases.pkgs:
 postgresql:
   service.running:
     - watch:
-      - pkg: databases.pkgs
+      - pkg: postgresql.pkgs
     - require:
-      - pkg: databases.pkg
+      - pkg: postgresql.pkg
