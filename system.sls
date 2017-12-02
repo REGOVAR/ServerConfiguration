@@ -4,6 +4,7 @@ system.pkgs:
       - htop
       - ncdu
       - ntp
+      - sudo
       - tree
 
 ntp:
