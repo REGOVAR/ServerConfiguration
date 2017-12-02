@@ -1,4 +1,5 @@
 include:
+  - system
   - term
 
 arkanosis:
