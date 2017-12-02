@@ -1,8 +1,10 @@
 base:
   '*':
     - backup
+    - databases
     - editors
     - mail
+    - monitoring
     - network
     - python
     - security
