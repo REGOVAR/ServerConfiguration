@@ -1,6 +1,19 @@
 include:
   - network
+  - postgresql
 
+#Postgresql
+regovarpg:
+  postgres_user.present:
+    - password: regovarpg
+    - require:
+      - pkg: postgresql.pkgs
+  postgres_database.present:
+    - owner: regovarpg
+    - require:
+      - pkg: postgresql.pkgs
+
+#Reference genomes
 {% for directory in ['cache', 'downloads', 'files', 'pipelines', 'jobs', 'databases/hg19', 'databases/hg38'] %}
 /var/regovar/{{ directory }}:
   file.directory:
