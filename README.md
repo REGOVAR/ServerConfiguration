@@ -6,7 +6,7 @@
 sed -i 's@^#\(precedence ::ffff:0:0/96  100\)@\1@' /etc/gai.conf
 apt install salt-minion git
 mkdir -p /srv
-git clone https://github.com/REGOVAR/server_configuration.git /srv/salt
+git clone https://github.com/REGOVAR/ServerConfiguration.git /srv/salt
 apt update
 salt-call --local state.highstate
 apt upgrade
