@@ -2,7 +2,7 @@ monitoring.pkgs:
   pkg.installed:
     - pkgs:
       - dstat
-      - lm_sensors
+      - lm-sensors
       - lsof
       - smartmontools
       - strace
@@ -43,4 +43,4 @@ smartctl -s on /dev/sdb:
     - group: root
     - mode: 644
     - require:
-      - pkg: monitoring_pkgs
+      - pkg: monitoring.pkgs
