@@ -8,4 +8,4 @@ postgresql:
     - watch:
       - pkg: postgresql.pkgs
     - require:
-      - pkg: postgresql.pkg
+      - pkg: postgresql.pkgs
