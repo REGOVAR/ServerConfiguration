@@ -10,7 +10,7 @@ monitoring.pkgs:
 smartmontools:
   service.running:
     - require:
-      - pkg: monitoring_pkgs
+      - pkg: monitoring.pkgs
     - watch:
       - file: /etc/default/smartmontools
       - file: /etc/smartd.conf
