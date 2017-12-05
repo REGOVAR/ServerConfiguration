@@ -14,4 +14,3 @@ base:
     - term
     - users
     - vcs
-    - webservers
