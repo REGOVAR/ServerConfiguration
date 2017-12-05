@@ -1,4 +1,4 @@
 python.pkgs:
   pkg.installed:
     - pkgs:
-      - python-pip
+      - python3-pip
