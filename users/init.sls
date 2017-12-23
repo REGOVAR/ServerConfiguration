@@ -60,6 +60,9 @@ asdp.zshconf:
       git config core.sparseCheckout true
       echo "zsh" >> .git/info/sparse-checkout
       git pull origin master
+    - cwd: /home/asdp
+    - runas: asdp
+    - unless: test -d /home/asdp/zshconf
 
 olivier:
   user.present:
