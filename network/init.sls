@@ -1,6 +1,7 @@
 network.pkgs:
   pkg.installed:
     - pkgs:
+      - ca-certificates
       - curl
       - openssh-client
       - openssh-server
