@@ -53,13 +53,13 @@ asdp:
 asdp.zshconf:
   cmd.run:
     - name: |
-      mkdir zshconf
-      cd zshconf
-      git init
-      git remote add -f origin https://github.com/Arkanosis/Arkonf.git
-      git config core.sparseCheckout true
-      echo "zsh" >> .git/info/sparse-checkout
-      git pull origin master
+        mkdir zshconf
+        cd zshconf
+        git init
+        git remote add -f origin https://github.com/Arkanosis/Arkonf.git
+        git config core.sparseCheckout true
+        echo "zsh" >> .git/info/sparse-checkout
+        git pull origin master
     - cwd: /home/asdp
     - runas: asdp
     - unless: test -d /home/asdp/zshconf
