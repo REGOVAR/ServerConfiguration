@@ -66,12 +66,12 @@ asdp.zshconf:
 
 /home/asdp/.zshrc:
   file.symlink:
-    - target: /home/asdp/zshconf/.zshrc
+    - target: /home/asdp/zshconf/zsh/.zshrc
     - user: asdp
 
 /home/asdp/.zsh:
   file.symlink:
-    - target: /home/asdp/zshconf/.zsh
+    - target: /home/asdp/zshconf/zsh/.zsh
     - user: asdp
 
 olivier:
