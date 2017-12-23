@@ -3,13 +3,13 @@ include:
   - postgresql
 
 #Postgresql
-regovarpg:
+regovar:
   postgres_user.present:
-    - password: regovarpg
+    - password: regovar
     - require:
       - pkg: postgresql.pkgs
   postgres_database.present:
-    - owner: regovarpg
+    - owner: regovar
     - require:
       - pkg: postgresql.pkgs
 
@@ -53,7 +53,7 @@ regovar.makeinstall:
   cmd.run:
     - name: |
         make init
-        sed -i 's/^\(\s*DATABASE_NAME\s*=\s*"[^"]\+\)\(".*\)/\1_test\2/' config.py
+        sed -i 's/^\(\s*DATABASE_NAME\s*=\s*"\)[^"]\+\(".*\)/\1regovar\2/' config.py
         make install
         make update_hpo
     - cwd: /home/regovar/Regovar/regovar
