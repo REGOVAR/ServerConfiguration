@@ -64,6 +64,16 @@ asdp.zshconf:
     - runas: asdp
     - unless: test -d /home/asdp/zshconf
 
+/home/asdp/.zshrc:
+  file.symlink:
+    - target: /home/asdp/zshconf/.zshrc
+    - user: asdp
+
+/home/asdp/.zsh:
+  file.symlink:
+    - target: /home/asdp/zshconf/.zsh
+    - user: asdp
+
 olivier:
   user.present:
     - home: /home/olivier
