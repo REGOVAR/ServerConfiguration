@@ -41,3 +41,10 @@ https://github.com/REGOVAR/Regovar.git:
   git.latest:
     - target: /home/regovar/Regovar
     - user: regovar
+
+regovar.requirements
+  pip_state.installed
+    - requirements:
+      - /home/regovar/Regovar/requirements.txt
+      - /home/regovar/Regovar/requirements-dev.txt
+    
