@@ -37,6 +37,7 @@ curl http://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/refGene.txt.gz | gu
         - pkg: network.pkgs
 
 #Regovar
+#FIXME
 https://github.com/REGOVAR/Regovar.git:
   git.latest:
     - target: /home/regovar/Regovar
@@ -47,4 +48,14 @@ regovar.requirements:
     - requirements:
       - /home/regovar/Regovar/requirements.txt
       - /home/regovar/Regovar/requirements-dev.txt
-    
+
+regovar.makeinstall:
+  cmd.run:
+    - name:
+      - make init
+      - sed -i 's/^\(\s*DATABASE_NAME\s*=\s*"[^"]\+\)\(".*\)/\1_test\2/' config.py
+      - make install
+      - make update_hpo
+    - cwd: /home/regovar/Regovar/regovar
+    - runas: regovar
+    - unless: test -f config.py
