@@ -35,3 +35,9 @@ curl http://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/refGene.txt.gz | gu
     - unless: test -f /var/regovar/databases/hg38/refGene.txt
     - require:
         - pkg: network.pkgs
+
+#Regovar
+https://github.com/REGOVAR/Regovar.git:
+  git.latest:
+    - target: /home/regovar/Regovar
+    - user: regovar
