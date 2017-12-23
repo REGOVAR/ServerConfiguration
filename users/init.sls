@@ -64,14 +64,3 @@ olivier:
       - pkg: term.pkgs
   group.present:
     - gid: 1001
-
-regovar:
-  user.present:
-    - home: /home/regovar
-    - uid: 2000
-    - gid: 2000
-    - remove_groups: False
-    - require:
-      - group: regovar
-  group.present:
-    - gid: 2000
