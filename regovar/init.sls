@@ -2,13 +2,22 @@ include:
   - network
   - postgresql
 
-#Postgresql
+#Regovar users
 regovar:
-  postgres_user.present:
+  user.present: #Linux user
+    - home: /home/regovar
+    - uid: 2000
+    - gid: 2000
+    - remove_groups: False
+    - require:
+      - group: regovar
+  group.present: #Linux user group
+    - gid: 2000
+  postgres_user.present: #Postgresql user
     - password: regovar
     - require:
       - pkg: postgresql.pkgs
-  postgres_database.present:
+  postgres_database.present: #Postgresql database
     - owner: regovar
     - require:
       - pkg: postgresql.pkgs
