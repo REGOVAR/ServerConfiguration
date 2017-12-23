@@ -42,7 +42,7 @@ https://github.com/REGOVAR/Regovar.git:
     - target: /home/regovar/Regovar
     - user: regovar
 
-regovar.requirements
+regovar.requirements:
   pip_state.installed:
     - requirements:
       - /home/regovar/Regovar/requirements.txt
