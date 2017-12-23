@@ -51,11 +51,7 @@ regovar.requirements:
 
 regovar.makeinstall:
   cmd.run:
-    - name:
-      - make init
-      - sed -i 's/^\(\s*DATABASE_NAME\s*=\s*"[^"]\+\)\(".*\)/\1_test\2/' config.py
-      - make install
-      - make update_hpo
+    - name: make init
     - cwd: /home/regovar/Regovar/regovar
     - runas: regovar
     - unless: test -f config.py
