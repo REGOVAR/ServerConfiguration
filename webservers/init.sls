@@ -21,3 +21,7 @@ nginx:
   file.symlink:
     - target: /etc/nginx/sites-available/regovar
     - user: root
+
+/etc/nginx/sites-enabled/default:
+  file:
+    - absent
