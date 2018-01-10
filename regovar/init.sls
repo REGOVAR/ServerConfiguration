@@ -55,8 +55,7 @@ https://github.com/REGOVAR/Regovar.git:
 regovar.requirements:
   pip.installed:
     - requirements:
-      - /home/regovar/Regovar/requirements-stretch.txt
-      - /home/regovar/Regovar/requirements-xenial.txt
+      - /home/regovar/Regovar/requirements.txt
       - /home/regovar/Regovar/requirements-dev.txt
 
 regovar.makeinstall:
