@@ -88,3 +88,12 @@ olivier:
       - pkg: term.pkgs
   group.present:
     - gid: 1001
+
+/home/olivier/.ssh/authorized_keys:
+  file.managed:
+    - source: salt://users/authorized_keys_olivier
+    - user: olivier
+    - mode: 644
+    - makedirs: True
+    - require:
+      - user: olivier
