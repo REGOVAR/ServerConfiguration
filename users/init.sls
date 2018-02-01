@@ -5,7 +5,7 @@ include:
 arkanosis:
   user.present:
     - home: /home/arkanosis
-    - shell: /usr/bin/zsh
+    - shell: /bin/bash
     - uid: 1301
     - gid: 1301
     - groups:
