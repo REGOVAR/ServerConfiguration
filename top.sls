@@ -1,6 +1,7 @@
 base:
   '*':
     - backup
+    - bioinfo
     - editors
     - mail
     - monitoring
