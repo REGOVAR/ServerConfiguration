@@ -12,3 +12,13 @@ salt-call --local state.highstate
 apt upgrade
 reboot now
 ```
+## Upgrade as root on Debian
+
+```sh
+cd /srv/salt
+git pull
+apt update
+salt-call --local state.highstate
+apt upgrade
+reboot now
+```
