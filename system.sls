@@ -1,7 +1,6 @@
 system.pkgs:
   pkg.installed:
     - pkgs:
-      - htop
       - ncdu
       - ntp
       - sudo

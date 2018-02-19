@@ -4,8 +4,10 @@ monitoring.pkgs:
       - dstat
       - lm-sensors
       - lsof
+      - htop
       - smartmontools
       - strace
+      - time
 
 smartmontools:
   service.running:
