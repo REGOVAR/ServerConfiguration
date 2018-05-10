@@ -19,7 +19,7 @@ Change `/srv/salt/users/init.sls` to specify the users you want on the computer.
 
 ### Mail server configuration (optional but recommended)
 
-In the lines below, replace $HOSTNAME with the name you want to give to your computer.
+In the lines below, replace `$HOSTNAME` with the name you want to give to your computer.
 
 ```sh
 sed -i 's/HOSTNAME_PLACEHOLDER/$HOSTNAME/' /srv/salt/hostname
@@ -27,12 +27,12 @@ sed -i 's/HOSTNAME_PLACEHOLDER/$HOSTNAME/' /srv/salt/hosts
 ```
 
 In the lines below, replace:
-- $SENDER_EMAIL with the email address of the computer administrator,
-- $SMTP_HOSTNAME with the hostname of the SMTP server (eg. smtp.gmail.com if your email is on Gmail),
-- $SMTP_PORT with the port of the SMTP server (eg. 465 if your email is on Gmail),
-- $SMTP_PASSWORD with the email password of the computer administrator,
-- $DOMAIN with the email domain (eg. gmail.com if your email is on Gmail),
-- $HOSTNAME with the name of your computer.
+- `$SENDER_EMAIL` with the email address of the computer administrator,
+- `$SMTP_HOSTNAME` with the hostname of the SMTP server (eg. `smtp.gmail.com` if your email is on Gmail),
+- `$SMTP_PORT` with the port of the SMTP server (eg. `465` if your email is on Gmail),
+- `$SMTP_PASSWORD` with the email password of the computer administrator,
+- `$DOMAIN` with the email domain (eg. `gmail.com` if your email is on Gmail),
+- `$HOSTNAME` with the name of your computer.
 We recommend to use a email account dedicated to this computer and not your personal mail account. This email account will be used to send all the automatic emails from this computer.
 
 ```sh
@@ -45,8 +45,8 @@ sed -i 's/SENDER_EMAIL_PLACEHOLDER/$SENDER_EMAIL/ ; s/SMTP_HOSTNAME_PLACEHOLDER/
 It requires a proper mail server configuration.
 
 In the lines below, replace:
-- $RECIPIENT_EMAIL with the mail address of the person to contact if there is some hardware defect on the computer or some software upgrade issue,
-- $SENDER_EMAIL with the email address of the computer administrator.
+- `$RECIPIENT_EMAIL` with the mail address of the person to contact if there is some hardware defect on the computer or some software upgrade issue,
+- `$SENDER_EMAIL` with the email address of the computer administrator.
 
 ```sh
 sed -i 's/RECIPIENT_EMAIL_PLACEHOLDER/$RECIPIENT_EMAIL/' /srv/salt/monitoring/smartd.conf
@@ -60,13 +60,13 @@ Do the same in `/srv/salt/monitoring/init.sls`, for the line above smartctl.
 
 ### SSH configuration (optional)
 
-In the line below, replace $SSH_USERS with a space-separated list of users allowed to connect to the computer using SSH.
+In the line below, replace `$SSH_USERS` with a space-separated list of users allowed to connect to the computer using SSH.
 
 ```sh
 sed -i 's/SSH_USERS_PLACEHOLDER/$SSH_USERS/' /srv/salt/network/sshd_config
 ```
 
-For these users, add authorized_keys in the `/srv/salt/users` directory.
+For these users, add authorized keys in the `/srv/salt/users` directory.
 
 ```sh
 apt update
