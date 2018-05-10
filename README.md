@@ -73,6 +73,11 @@ For these users, add authorized keys in the `/srv/salt/users` directory.
 ```sh
 apt update
 salt-call --local state.highstate
+```
+
+This step may take some time, mainly depending on your network speed.
+
+```sh
 apt upgrade
 reboot now
 ```
