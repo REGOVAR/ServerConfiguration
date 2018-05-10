@@ -54,6 +54,7 @@ https://github.com/REGOVAR/Regovar.git:
 
 regovar.requirements:
   pip.installed:
+    - bin_env: 'usr/bin/pip3'
     - requirements:
       - /home/regovar/Regovar/requirements.txt
       - /home/regovar/Regovar/requirements-dev.txt
