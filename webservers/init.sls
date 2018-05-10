@@ -13,6 +13,7 @@ nginx:
 
 /etc/nginx/site-available/regovar:
   file.managed:
+    - makedirs: True
     - source: salt://webservers/regovar
     - user: root
     - mode: 644
