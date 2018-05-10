@@ -17,17 +17,13 @@ smartmontools:
       - file: /etc/default/smartmontools
       - file: /etc/smartd.conf
 
-smartctl -s on /dev/sda:
+{% for device in ['sda','sdb'] %}
+smartctl -s on /dev/{{device}}:
   cmd.run:
-    - onlyif: "smartctl -i /dev/sda | grep -q 'SMART support is: Disabled'"
+    - onlyif: "smartctl -i /dev/{{device}} | grep -q 'SMART support is: Disabled'"
     - require:
-      - pkg: monitoring.pkgs
-
-smartctl -s on /dev/sdb:
-  cmd.run:
-    - onlyif: "smartctl -i /dev/sdb | grep -q 'SMART support is: Disabled'"
-    - require:
-      - pkg: monitoring.pkgs
+      - pkg: monitoring.pkgs   
+{% endfor %}
 
 /etc/default/smartmontools:
   file.managed:

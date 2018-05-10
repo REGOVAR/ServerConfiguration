@@ -21,7 +21,7 @@ AuthenticationMethods publickey
 PermitRootLogin no
 PermitEmptyPasswords no
 StrictModes yes
-AllowUsers arkanosis asdp olivier
+AllowUsers SSH_USERS_PLACEHOLDER
 
 LoginGraceTime 30
 MaxAuthTries 3

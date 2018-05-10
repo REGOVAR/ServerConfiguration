@@ -4,4 +4,4 @@
 test -x /usr/share/logwatch/scripts/logwatch.pl || exit 0
 
 #execute
-/usr/sbin/logwatch --detail med --mailto regovar-server@googlegroups.com
+/usr/sbin/logwatch --detail med --mailto RECIPIENT_EMAIL_PLACEHOLDER

@@ -3,5 +3,5 @@ ignoreip = 127.0.0.1/8 109.190.87.126 176.145.226.136
 bantime  = 2592000
 findtime = 3600
 maxretry = 3
-destemail = regovar-server@googlegroups.com
-sender = admin@regovar.org
+destemail = RECIPIENT_EMAIL_PLACEHOLDER
+sender = SENDER_EMAIL_PLACEHOLDER
