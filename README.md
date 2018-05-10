@@ -9,7 +9,15 @@ mkdir -p /srv
 git clone https://github.com/REGOVAR/ServerConfiguration.git /srv/salt
 ```
 
-### Mail server configuration
+### Network configuration
+
+Check if `/srv/salt/network/interfaces` matches your network interfaces.
+
+### Users configuration
+
+Change `/srv/salt/users/init.sls` to specify the users you want on the computer. For more information, we invite you to visit the [SaltStack documentation](https://docs.saltstack.com/en/latest/ref/states/all/salt.states.user.html).
+
+### Mail server configuration (optional but recommended)
 
 In the lines below, replace $HOSTNAME with the name you want to give to your computer.
 
@@ -32,7 +40,9 @@ sed -i 's/SENDER_EMAIL_PLACEHOLDER/$SENDER_EMAIL/' /srv/salt/mail/revaliases
 sed -i 's/SENDER_EMAIL_PLACEHOLDER/$SENDER_EMAIL/ ; s/SMTP_HOSTNAME_PLACEHOLDER/$SMTP_HOSTNAME/ ; s/SMTP_PORT_PLACEHOLDER/$SMTP_PORT/ ; s/SMTP_PASSWORD_PLACEHOLDER/$PASSWORD/ ; s/DOMAIN_PLACEHOLDER/$DOMAIN/ ; s/HOSTNAME_PLACEHOLDER/$HOSTNAME/' /srv/salt/mail/ssmtp.conf
 ```
 
-### Monitoring configuration
+### Monitoring configuration (optional but recommended)
+
+It requires a proper mail server configuration.
 
 In the lines below, replace:
 - $RECIPIENT_EMAIL with the mail address of the person to contact if there is some hardware defect on the computer or some software upgrade issue,
@@ -47,14 +57,6 @@ sed -i 's/RECIPIENT_EMAIL_PLACEHOLDER/$RECIPIENT_EMAIL/' /srv/salt/monitoring/lo
 
 Edit `/srv/salt/monitoring/smartd.conf` to make sure all fixed storage devices like /dev/sda (not the removable devices and not the partitions like /dev/sda*1*) of the computer are listed in it. Use `lsblk -p` to list all the storage devices of the computer.
 Do the same in `/srv/salt/monitoring/init.sls`, for the line above smartctl.
-
-### Network configuration
-
-Check if `/srv/salt/network/interfaces` matches your network interfaces.
-
-### Users configuration
-
-Change `/srv/salt/users/init.sls` to specify the users you want on the computer. For more information, we invite you to visit the [SaltStack documentation](https://docs.saltstack.com/en/latest/ref/states/all/salt.states.user.html).
 
 ### SSH configuration (optional)
 
