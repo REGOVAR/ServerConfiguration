@@ -66,7 +66,7 @@ In the line below, replace $SSH_USERS with a space-separated list of users allow
 sed -i 's/SSH_USERS_PLACEHOLDER/$SSH_USERS/' /srv/salt/network/sshd_config
 ```
 
-For these users, add authorized_keys in the /srv/salt/users directory.
+For these users, add authorized_keys in the `/srv/salt/users` directory.
 
 ```sh
 apt update
