@@ -68,6 +68,8 @@ sed -i 's/SSH_USERS_PLACEHOLDER/$SSH_USERS/' /srv/salt/network/sshd_config
 
 For these users, add authorized keys in the `/srv/salt/users` directory.
 
+### Apply the SaltStack Configuration
+
 ```sh
 apt update
 salt-call --local state.highstate
