@@ -7,10 +7,12 @@ sed -i 's@^#\(precedence ::ffff:0:0/96  10\)@\1@' /etc/gai.conf # to prefer IPv4
 apt install salt-minion git
 mkdir -p /srv
 git clone https://github.com/REGOVAR/ServerConfiguration.git /srv/salt
-
 ```
 
+### Mail server configuration
+
 In the lines below, replace $HOSTNAME with the name you want to give to your computer.
+
 ```sh
 sed -i 's/HOSTNAME_PLACEHOLDER/$HOSTNAME/' /srv/salt/hostname
 sed -i 's/HOSTNAME_PLACEHOLDER/$HOSTNAME/' /srv/salt/hosts
@@ -30,28 +32,39 @@ sed -i 's/SENDER_EMAIL_PLACEHOLDER/$SENDER_EMAIL/' /srv/salt/mail/revaliases
 sed -i 's/SENDER_EMAIL_PLACEHOLDER/$SENDER_EMAIL/ ; s/SMTP_HOSTNAME_PLACEHOLDER/$SMTP_HOSTNAME/ ; s/SMTP_PORT_PLACEHOLDER/$SMTP_PORT/ ; s/SMTP_PASSWORD_PLACEHOLDER/$PASSWORD/ ; s/DOMAIN_PLACEHOLDER/$DOMAIN/ ; s/HOSTNAME_PLACEHOLDER/$HOSTNAME/' /srv/salt/mail/ssmtp.conf
 ```
 
+### Monitoring configuration
+
 In the lines below, replace:
 - $RECIPIENT_EMAIL with the mail address of the person to contact if there is some hardware defect on the computer or some software upgrade issue,
 - $SENDER_EMAIL with the email address of the computer administrator.
+
 ```sh
 sed -i 's/RECIPIENT_EMAIL_PLACEHOLDER/$RECIPIENT_EMAIL/' /srv/salt/monitoring/smartd.conf
 sed -i 's/RECIPIENT_EMAIL_PLACEHOLDER/$RECIPIENT_EMAIL/' /srv/salt/security/cron-apt-config
 sed -i 's/RECIPIENT_EMAIL_PLACEHOLDER/$RECIPIENT_EMAIL/ ; s/SENDER_EMAIL_PLACEHOLDER/$SENDER_EMAIL/' /srv/salt/security/fail2ban-jail.local
 sed -i 's/RECIPIENT_EMAIL_PLACEHOLDER/$RECIPIENT_EMAIL/' /srv/salt/monitoring/logwatch-cron
 ```
-Edit the file `/srv/salt/monitoring/smartd.conf` to make sure all fixed storage devices like /dev/sda (not the removable devices and not the partitions like /dev/sda*1*) of the computer are listed in it. Use `lsblk -p` to list all the storage devices of the computer.
-Do the same in the file `/srv/salt/monitoring/init.sls`, for the line above smartctl.
 
-Check if the file `/srv/salt/network/interfaces` matches your network interfaces.
+Edit `/srv/salt/monitoring/smartd.conf` to make sure all fixed storage devices like /dev/sda (not the removable devices and not the partitions like /dev/sda*1*) of the computer are listed in it. Use `lsblk -p` to list all the storage devices of the computer.
+Do the same in `/srv/salt/monitoring/init.sls`, for the line above smartctl.
+
+### Network configuration
+
+Check if `/srv/salt/network/interfaces` matches your network interfaces.
+
+### Users configuration
+
+Change `/srv/salt/users/init.sls` to specify the users you want on the computer. For more information, we invite you to visit the [SaltStack documentation](https://docs.saltstack.com/en/latest/ref/states/all/salt.states.user.html).
+
+### SSH configuration (optional)
 
 In the line below, replace $SSH_USERS with a space-separated list of users allowed to connect to the computer using SSH.
+
 ```sh
 sed -i 's/SSH_USERS_PLACEHOLDER/$SSH_USERS/' /srv/salt/network/sshd_config
 ```
+
 For these users, add authorized_keys in the /srv/salt/users directory.
-
-Change the file `/srv/salt/users/init.sls` to specify the users you want on the computer. For more information, we invite you to visit the [SaltStack documentation](https://docs.saltstack.com/en/latest/ref/states/all/salt.states.user.html).
-
 
 ```sh
 apt update
