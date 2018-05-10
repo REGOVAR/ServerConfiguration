@@ -76,6 +76,7 @@ salt-call --local state.highstate
 ```
 
 This step may take some time, mainly depending on your network speed.
+If you have an error stating that "pip.installed is not available" when running highstate, then it may be that you are using a buggy version of pip (9.0.1 or 9.0.2). A [fix](https://github.com/pypa/pip/pull/4442/commits/048dacde21679cd43695a55ce3dd243e314fe06e) is shipped with pip 9.0.3 that you can apply manually to `/usr/lib/python3/dist-packages/pip/locations.py`.
 
 ```sh
 apt upgrade
