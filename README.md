@@ -26,7 +26,7 @@ apt upgrade
 reboot now
 ```
 
-## On Ubuntu
+## As root on Ubuntu
 
 ### Deployment
 
