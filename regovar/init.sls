@@ -53,4 +53,5 @@ regovar.makeinstall:
         make database
         make install_hpo
     - cwd: /home/regovar/Regovar/regovar
+    - runas: regovar
     - unless: test -f config.py
