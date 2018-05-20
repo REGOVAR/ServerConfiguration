@@ -17,10 +17,6 @@ regovar:
     - password: regovar
     - require:
       - pkg: postgresql.pkgs
-  postgres_database.present: #Postgresql database
-    - owner: regovar
-    - require:
-      - pkg: postgresql.pkgs
 
 #Reference genomes
 {% for directory in ['cache', 'downloads', 'files', 'pipelines', 'jobs', 'databases/hg19', 'databases/hg38'] %}
@@ -33,17 +29,6 @@ regovar:
     - file_mode: 644    
 {% endfor %}
 
-curl http://hgdownload.soe.ucsc.edu/goldenPath/hg19/database/refGene.txt.gz | gunzip > /var/regovar/databases/hg19/refGene.txt:
-  cmd.run:
-    - unless: test -f /var/regovar/databases/hg19/refGene.txt
-    - require:
-        - pkg: network.pkgs
-
-curl http://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/refGene.txt.gz | gunzip > /var/regovar/databases/hg38/refGene.txt:
-  cmd.run:
-    - unless: test -f /var/regovar/databases/hg38/refGene.txt
-    - require:
-        - pkg: network.pkgs
 
 #Regovar
 #FIXME
@@ -62,9 +47,10 @@ regovar.requirements:
 regovar.makeinstall:
   cmd.run:
     - name: |
-        make init
-        sed -i 's/^\(\s*DATABASE_NAME\s*=\s*"\)[^"]\+\(".*\)/\1regovar\2/' config.py
-        make setup
+        make download_refgene
+        make init_config
+		sed -i 's/^\(\s*DATABASE_NAME\s*=\s*"\)[^"]\+\(".*\)/\1regovar\2/' config.py
+        make database
         make install_hpo
     - cwd: /home/regovar/Regovar/regovar
     - runas: regovar
