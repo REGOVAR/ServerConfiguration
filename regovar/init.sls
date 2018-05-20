@@ -47,11 +47,12 @@ regovar.requirements:
 regovar.makeinstall:
   cmd.run:
     - name: |
-        make download_refgene
         make init_config
-		sed -i 's/^\(\s*DATABASE_NAME\s*=\s*"\)[^"]\+\(".*\)/\1regovar\2/' config.py
+        sed -i 's/^\(\s*DATABASE_NAME\s*=\s*"\)[^"]\+\(".*\)/\1regovar\2/' config.py
+        make download_refgene
         make database
         make install_hpo
-    - cwd: /home/regovar/Regovar/regovar
+    - cwd: /home/regovar/Regovar/install
     - runas: regovar
     - unless: test -f config.py
+
