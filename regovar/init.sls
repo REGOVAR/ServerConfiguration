@@ -50,7 +50,7 @@ regovar.makeinstall:
         make init_config
         sed -i 's/^\(\s*DATABASE_NAME\s*=\s*"\)[^"]\+\(".*\)/\1regovar\2/' config.py
         make download_refgene
-        make database
+        make setup_database
         make install_hpo
     - cwd: /home/regovar/Regovar/install
     - runas: regovar
