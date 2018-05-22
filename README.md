@@ -12,7 +12,7 @@ git clone https://github.com/REGOVAR/ServerConfiguration.git /srv/salt
 git clone https://github.com/REGOVAR/ServerConfigurationBrownie.git /srv/pillar # Use your own repository here
 ```
 
-Edit /srv/pillar/settings.sls as appropriate (the file is self-documented).
+Edit `/srv/pillar/settings.sls` as appropriate (the file is self-documented).
 
 ### Applying the configuration
 
