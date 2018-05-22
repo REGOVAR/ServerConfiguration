@@ -53,8 +53,8 @@ regovar.makeinstall:
         make download_refgene
         sudo -u postgres make create_database
         sudo -u regovar make fill_database
-		make download_hpo
-		sudo -u regovar make install_hpo
+        make download_hpo
+        sudo -u regovar make install_hpo
     - cwd: /home/regovar/Regovar/install
     - unless: test -f config.py
 
