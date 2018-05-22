@@ -10,7 +10,7 @@ nginx:
     - require:
       - pkg: webservers.pkgs
 
-/etc/nginx/site-available/regovar:
+/etc/nginx/sites-available/regovar:
   file.managed:
     - makedirs: True
     - source: salt://webservers/regovar
