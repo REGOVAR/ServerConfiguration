@@ -1,1 +1,1 @@
-HOSTNAME_PLACEHOLDER
+{{pillar['hostname']}}

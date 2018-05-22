@@ -1,4 +1,4 @@
-127.0.0.1	localhost HOSTNAME_PLACEHOLDER
+127.0.0.1	localhost {{pillar['hostname']}}
 
 ::1	localhost ip6-localhost ip6-loopback
 ff02::1	ip6-allnodes

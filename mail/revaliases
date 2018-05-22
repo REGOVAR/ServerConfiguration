@@ -1,2 +1,2 @@
-root:SENDER_EMAIL_PLACEHOLDER
-regovar:SENDER_EMAIL_PLACEHOLDER
+root:{{pillar['sender_email']}}
+regovar:{{pillar['sender_email']}}
