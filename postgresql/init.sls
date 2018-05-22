@@ -2,7 +2,7 @@ postgresql.pkgs:
   pkg.installed:
     - pkgs:
 {% if grains['os'] == 'Debian' %}       
-	  - postgresql-9.6
+      - postgresql-9.6
 {% else %}
       - postgresql
 {% endif %}
