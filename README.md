@@ -7,16 +7,10 @@ sed -i 's@^#\(precedence ::ffff:0:0/96  10\)@\1@' /etc/gai.conf # to prefer IPv4
 apt install salt-minion git
 mkdir -p /srv
 git clone https://github.com/REGOVAR/ServerConfiguration.git /srv/salt
-git clone https://github.com/REGOVAR/ServerConfigurationBrownie.git /srv/pillar
+git clone https://github.com/REGOVAR/ServerConfigurationBrownie.git /srv/pillar # Use your own repository here
 ```
 
 Edit /srv/pillar/settings.sls as appropriate (the file is self-documented).
-
-### Network configuration
-
-TODO FIXME put this in the pillar as well
-
-Check if `/srv/salt/network/interfaces` matches your network interfaces.
 
 ### Apply the SaltStack Configuration
 
