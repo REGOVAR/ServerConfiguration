@@ -14,4 +14,5 @@ network.pkgs:
 /etc/ssh/sshd_config:
   file.managed:
     - source: salt://network/sshd_config
+    - template: jinja
     - mode: 644

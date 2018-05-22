@@ -21,7 +21,7 @@ AuthenticationMethods publickey
 PermitRootLogin no
 PermitEmptyPasswords no
 StrictModes yes
-AllowUsers SSH_USERS_PLACEHOLDER
+AllowUsers {{ pillar['users'] | selectattr("ssh", "defined") | selectattr("ssh") | join(' ', attribute='login') }}
 
 LoginGraceTime 30
 MaxAuthTries 3
