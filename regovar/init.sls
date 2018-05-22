@@ -55,6 +55,8 @@ regovar.makeinstall:
         sudo -u regovar make fill_database
         make download_hpo
         sudo -u regovar make install_hpo
+	- require:
+	  - user: regovar
     - cwd: /home/regovar/Regovar/install
     - unless: test -f config.py
 
