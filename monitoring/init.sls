@@ -18,9 +18,9 @@ smartmontools:
       - file: /etc/smartd.conf
 
 {% for device in ['sda','sdb'] %}
-smartctl -s on /dev/{{device}}:
+smartctl -s on /dev/{{ device }}:
   cmd.run:
-    - onlyif: "smartctl -i /dev/{{device}} | grep -q 'SMART support is: Disabled'"
+    - onlyif: "smartctl -i /dev/{{ device }} | grep -q 'SMART support is: Disabled'"
     - require:
       - pkg: monitoring.pkgs   
 {% endfor %}
@@ -37,6 +37,7 @@ smartctl -s on /dev/{{device}}:
 /etc/smartd.conf:
   file.managed:
     - source: salt://monitoring/smartd.conf
+    - template: jinja
     - user: root
     - group: root
     - mode: 644

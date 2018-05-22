@@ -1,2 +1,2 @@
-root:{{pillar['sender_email']}}
-regovar:{{pillar['sender_email']}}
+root:{{ pillar['sender_email'] }}
+regovar:{{ pillar['sender_email'] }}

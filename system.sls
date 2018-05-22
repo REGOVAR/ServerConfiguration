@@ -15,11 +15,13 @@ ntp:
 /etc/hostname:
   file.managed:
     - source: salt://hostname
+    - template: jinja
     - user: root
     - mode: 644
 
 /etc/hosts:
   file.managed:
     - source: salt://hosts
+    - template: jinja
     - user: root
     - mode: 644
