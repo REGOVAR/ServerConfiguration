@@ -5,19 +5,26 @@
 ### Getting the configuration
 
 ```sh
-sed -i 's@^#\(precedence ::ffff:0:0/96  10\)@\1@' /etc/gai.conf # to prefer IPv4 to IPv6, necessary in some places
-apt install salt-minion git
 mkdir -p /srv
+apt install git
 git clone https://github.com/REGOVAR/ServerConfiguration.git /srv/salt
 git clone https://github.com/REGOVAR/ServerConfigurationBrownie.git /srv/pillar # Use your own repository here
 ```
 
-Edit `/srv/pillar/settings.sls` as appropriate (the file is self-documented).
+Note: if you have troubles even getting apt to access the network, it may be because your operating system is configured to prefer IPv6 while your network is IPv4 only.
+In this case, you can use the following command to make your operating system prefer IPv4:
+
+```sh
+sed -i 's@^#\(precedence ::ffff:0:0/96  10\)@\1@' /etc/gai.conf
+```
 
 ### Applying the configuration
 
+Edit `/srv/pillar/settings.sls` as appropriate (the file is self-documented).
+
 ```sh
 apt update
+apt install salt-minion
 salt-call --local state.highstate
 ```
 
