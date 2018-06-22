@@ -5,6 +5,7 @@ webservers.pkgs:
       
 nginx:
   service.running:
+    - enable: True
     - watch:
       - pkg: webservers.pkgs
     - require:

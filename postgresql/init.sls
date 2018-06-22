@@ -9,6 +9,7 @@ postgresql.pkgs:
 
 postgresql:
   service.running:
+    - enable: True
     - watch:
       - pkg: postgresql.pkgs
     - require:

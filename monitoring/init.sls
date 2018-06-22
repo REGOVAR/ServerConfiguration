@@ -11,6 +11,7 @@ monitoring.pkgs:
 
 smartmontools:
   service.running:
+    - enable: True
     - require:
       - pkg: monitoring.pkgs
     - watch:
