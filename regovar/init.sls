@@ -45,7 +45,8 @@ regovar.pkgs:
 
 regovar.requirements:
   pip.installed:
-    - require: regovar.pkgs
+    - require:
+      - pkg: regovar.pkgs
     - bin_env: '/usr/bin/pip3'
     - requirements:
       - /home/regovar/Regovar/requirements.txt
