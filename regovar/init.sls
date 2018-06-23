@@ -50,7 +50,6 @@ regovar.requirements:
     - bin_env: '/usr/bin/pip3'
     - requirements:
       - /home/regovar/Regovar/requirements.txt
-      - /home/regovar/Regovar/requirements-dev.txt
 
 regovar.makeinstall:
   cmd.run:
