@@ -55,7 +55,7 @@ regovar.requirements:
 regovar.makeinstall:
   cmd.run:
     - name: |
-        make init_config
+        sudo -u regovar make init_config
         sed -i 's/^\(\s*DATABASE_NAME\s*=\s*"\)[^"]\+\(".*\)/\1regovar\2/' config.py
         sed -i 's/^\(\s*DATABASE_HOST\s*=\s*"\)[^"]\+\(".*\)/\1localhost\2/' config.py
         make download_refgene
