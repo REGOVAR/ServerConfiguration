@@ -66,7 +66,7 @@ regovar.makeinstall:
     - require:
       - user: regovar
     - cwd: /home/regovar/Regovar/install
-    - unless: test -f config.py
+    - unless: test -f ../regovar/config.py
     - env:
       - LC_ALL: en_US.UTF-8
 
