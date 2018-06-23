@@ -37,8 +37,15 @@ https://github.com/REGOVAR/Regovar.git:
     - target: /home/regovar/Regovar
     - user: regovar
 
+regovar.pkgs:
+  pkg.installed:
+    - pkgs:
+      - libssl-dev
+      #required to make pip install work
+
 regovar.requirements:
   pip.installed:
+    - require: regovar.pkgs
     - bin_env: '/usr/bin/pip3'
     - requirements:
       - /home/regovar/Regovar/requirements.txt
