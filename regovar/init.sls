@@ -1,4 +1,5 @@
 include:
+  - containers
   - network
   - postgresql
 
@@ -9,8 +10,11 @@ regovar:
     - uid: 2000
     - gid: 2000
     - remove_groups: False
+    - groups:
+      - docker
     - require:
       - group: regovar
+      - pkg: containers.pkgs
   group.present: #Linux user group
     - gid: 2000
   postgres_user.present: #Postgresql user
