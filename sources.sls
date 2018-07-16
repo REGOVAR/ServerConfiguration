@@ -3,9 +3,8 @@ deb http://security.debian.org/ stretch/updates main:
   pkgrepo.managed:
     - dist: stretch/updates
     - file: /etc/apt/sources.list.d/security.list
-{% endif %}
 
-deb https://download.docker.com/linux/ubuntu stretch stable:
+deb https://download.docker.com/linux/debian stretch stable:
   pkgrepo.managed:
     - dist: stretch
     - file: /etc/apt/sources.list.d/docker.list
