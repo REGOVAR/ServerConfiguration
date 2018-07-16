@@ -1,7 +1,7 @@
 include:
   - sources
 
-containers.pkgs:
+containers_pkgs:
   pkg.installed:
     - pkgs:
 {% if grains['osrelease'] in ['stretch', 'xenial'] %}

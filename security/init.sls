@@ -1,4 +1,4 @@
-security.pkgs:
+security_pkgs:
   pkg.installed:
     - pkgs:
       - cron-apt

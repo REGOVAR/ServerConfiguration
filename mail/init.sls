@@ -1,4 +1,4 @@
-mail.pkgs:
+mail_pkgs:
   pkg.installed:
     - pkgs:
       - s-nail
