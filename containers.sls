@@ -1,6 +1,3 @@
-include:
-  - sources
-
 containers_pkgs:
   pkg.installed:
     - pkgs:

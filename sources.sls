@@ -1,3 +1,6 @@
+include:
+  - containers
+
 {% if grains['oscodename'] == 'stretch' %}
 deb http://security.debian.org/ stretch/updates main:
   pkgrepo.managed:
@@ -10,7 +13,7 @@ deb https://download.docker.com/linux/debian stretch stable:
     - file: /etc/apt/sources.list.d/docker.list
     - keyid: 0EBFCD88
     - require_in:
-      - pkg: docker-ce
+      - pkg: containers_pkgs
 {% endif %}
 
 {% if grains['oscodename'] == 'xenial' %}
@@ -20,5 +23,5 @@ deb https://download.docker.com/linux/ubuntu xenial stable:
     - file: /etc/apt/sources.list.d/docker.list
     - keyid: 0EBFCD88
     - require_in:
-      - pkg: docker-ce
+      - pkg: containers_pkgs
 {% endif %}
