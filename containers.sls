@@ -4,8 +4,8 @@ include:
 containers_pkgs:
   pkg.installed:
     - pkgs:
-{% if grains['osrelease'] in ['stretch', 'xenial'] %}
+{% if grains['oscodename'] in ['stretch', 'xenial'] %}
       - docker-ce
-{% elif grains['osrelease'] == 'bionic' %}
+{% else %}
       - docker.io
 {% endif %}
