@@ -1,6 +1,15 @@
 # Regovar server
 
-## Deploying as root on Debian or Ubuntu
+All commands below must be run as root.
+
+The configuration has been tested with:
+ - Debian 9 (Stretch)
+ - Ubuntu 16.04 LTS (Xenial)
+ - Ubuntu 18.04 LTS (Bionic)
+ 
+It does *not* work with Debian 8 (Jessie).
+
+## Deploying
 
 ### Getting the configuration
 
@@ -37,7 +46,7 @@ apt upgrade
 reboot now
 ```
 
-## Updating the computer and the configuration as root on Debian or Ubuntu
+## Updating the computer and the configuration
 
 ```sh
 cd /srv/salt
