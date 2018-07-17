@@ -1,4 +1,4 @@
-monitoring.pkgs:
+monitoring_pkgs:
   pkg.installed:
     - pkgs:
       - dstat
@@ -13,7 +13,7 @@ smartmontools:
   service.running:
     - enable: True
     - require:
-      - pkg: monitoring.pkgs
+      - pkg: monitoring_pkgs
     - watch:
       - file: /etc/default/smartmontools
       - file: /etc/smartd.conf
@@ -23,7 +23,7 @@ smartctl -s on /dev/{{ device }}:
   cmd.run:
     - onlyif: "smartctl -i /dev/{{ device }} | grep -q 'SMART support is: Disabled'"
     - require:
-      - pkg: monitoring.pkgs   
+      - pkg: monitoring_pkgs
 {% endfor %}
 
 /etc/default/smartmontools:
@@ -33,7 +33,7 @@ smartctl -s on /dev/{{ device }}:
     - group: root
     - mode: 644
     - require:
-      - pkg: monitoring.pkgs
+      - pkg: monitoring_pkgs
 
 /etc/smartd.conf:
   file.managed:
@@ -43,4 +43,4 @@ smartctl -s on /dev/{{ device }}:
     - group: root
     - mode: 644
     - require:
-      - pkg: monitoring.pkgs
+      - pkg: monitoring_pkgs

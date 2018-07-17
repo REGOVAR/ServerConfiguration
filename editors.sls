@@ -1,4 +1,4 @@
-editors.pkgs:
+editors_pkgs:
   pkg.installed:
     - pkgs:
       - emacs

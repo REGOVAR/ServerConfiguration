@@ -1,4 +1,5 @@
 include:
+  - containers
   - network
   - postgresql
 
@@ -9,14 +10,17 @@ regovar:
     - uid: 2000
     - gid: 2000
     - remove_groups: False
+    - groups:
+      - docker
     - require:
       - group: regovar
+      - pkg: containers_pkgs
   group.present: #Linux user group
     - gid: 2000
   postgres_user.present: #Postgresql user
     - password: regovar
     - require:
-      - pkg: postgresql.pkgs
+      - pkg: postgresql_pkgs
 
 #Reference genomes
 {% for directory in ['cache', 'downloads', 'files', 'pipelines', 'jobs', 'databases/hg19', 'databases/hg38'] %}
@@ -26,7 +30,7 @@ regovar:
     - user: regovar
     - group: regovar
     - dir_mode: 755
-    - file_mode: 644    
+    - file_mode: 644
 {% endfor %}
 
 
@@ -37,7 +41,7 @@ https://github.com/REGOVAR/Regovar.git:
     - target: /home/regovar/Regovar
     - user: regovar
 
-regovar.pkgs:
+regovar_pkgs:
   pkg.installed:
     - pkgs:
       - libssl-dev
@@ -46,7 +50,7 @@ regovar.pkgs:
 regovar.requirements:
   pip.installed:
     - require:
-      - pkg: regovar.pkgs
+      - pkg: regovar_pkgs
     - bin_env: '/usr/bin/pip3'
     - requirements:
       - /home/regovar/Regovar/requirements.txt

@@ -1,7 +1,7 @@
-postgresql.pkgs:
+postgresql_pkgs:
   pkg.installed:
     - pkgs:
-{% if grains['os'] == 'Debian' %}       
+{% if grains['os'] == 'Debian' %}
       - postgresql-9.6
 {% else %}
       - postgresql
@@ -11,6 +11,6 @@ postgresql:
   service.running:
     - enable: True
     - watch:
-      - pkg: postgresql.pkgs
+      - pkg: postgresql_pkgs
     - require:
-      - pkg: postgresql.pkgs
+      - pkg: postgresql_pkgs

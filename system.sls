@@ -1,4 +1,4 @@
-system.pkgs:
+system_pkgs:
   pkg.installed:
     - pkgs:
       - ncdu
@@ -10,7 +10,7 @@ ntp:
   service.running:
     - enable: True
     - require:
-      - pkg: system.pkgs
+      - pkg: system_pkgs
 
 /etc/hostname:
   file.managed:

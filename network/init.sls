@@ -1,4 +1,4 @@
-network.pkgs:
+network_pkgs:
   pkg.installed:
     - pkgs:
       - ca-certificates

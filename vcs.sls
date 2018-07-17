@@ -1,4 +1,4 @@
-vcs.pkgs:
+vcs_pkgs:
   pkg.installed:
     - pkgs:
       - git

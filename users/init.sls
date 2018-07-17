@@ -17,7 +17,7 @@ include:
     - remove_groups: False
     - require:
       - group: {{ user.login }}
-      - pkg: term.pkgs
+      - pkg: term_pkgs
   group.present:
     - gid: {{ user.id }}
 

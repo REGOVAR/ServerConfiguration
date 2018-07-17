@@ -1,15 +1,15 @@
-webservers.pkgs:
+webservers_pkgs:
   pkg.installed:
     - pkgs:
       - nginx
-      
+
 nginx:
   service.running:
     - enable: True
     - watch:
-      - pkg: webservers.pkgs
+      - pkg: webservers_pkgs
     - require:
-      - pkg: webservers.pkgs
+      - pkg: webservers_pkgs
 
 /etc/nginx/sites-available/regovar:
   file.managed:
@@ -17,7 +17,7 @@ nginx:
     - source: salt://webservers/regovar
     - user: root
     - mode: 644
-      
+
 /etc/nginx/sites-enabled/regovar:
   file.symlink:
     - target: /etc/nginx/sites-available/regovar
