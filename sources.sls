@@ -1,4 +1,4 @@
-{% if grains['osrelease'] == 'stretch' %}
+{% if grains['oscodename'] == 'stretch' %}
 deb http://security.debian.org/ stretch/updates main:
   pkgrepo.managed:
     - dist: stretch/updates
@@ -13,7 +13,7 @@ deb https://download.docker.com/linux/debian stretch stable:
       - pkg: docker-ce
 {% endif %}
 
-{% if grains['osrelease'] == 'xenial' %}
+{% if grains['oscodename'] == 'xenial' %}
 deb https://download.docker.com/linux/ubuntu xenial stable:
   pkgrepo.managed:
     - dist: xenial
