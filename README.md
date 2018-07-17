@@ -11,7 +11,9 @@ It does *not* work with Debian 8 (Jessie).
 
 ## Deploying
 
-### Getting the configuration
+This is what needs to be done for the initial deployment of Regovar on a brand new server.
+
+### Getting the configuration template
 
 ```sh
 mkdir -p /srv
@@ -27,9 +29,15 @@ In this case, you can use the following command to make your operating system pr
 sed -i 's@^#\(precedence ::ffff:0:0/96  10\)@\1@' /etc/gai.conf
 ```
 
-### Applying the configuration
+### Editing the local configuration settings
 
-Edit `/srv/pillar/settings.sls` as appropriate (the file is self-documented).
+Edit `/srv/pillar/settings.sls` as appropriate (the file is self-documented):
+
+```sh
+$EDITOR /srv/pillar/settings.sls
+```
+
+### Applying the configuration
 
 ```sh
 apt update
@@ -46,7 +54,9 @@ apt upgrade
 reboot now
 ```
 
-## Updating the computer and the configuration
+## Updating
+
+This is what needs to be done to update a server on which Regovar as already been installed.
 
 ```sh
 cd /srv/salt
