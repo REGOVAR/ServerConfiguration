@@ -12,6 +12,7 @@ deb https://download.docker.com/linux/debian stretch stable:
     - dist: stretch
     - file: /etc/apt/sources.list.d/docker.list
     - keyid: 0EBFCD88
+    - keyserver: keyserver.ubuntu.com
     - require_in:
       - pkg: containers_pkgs
 {% endif %}
@@ -22,6 +23,7 @@ deb https://download.docker.com/linux/ubuntu xenial stable:
     - dist: xenial
     - file: /etc/apt/sources.list.d/docker.list
     - keyid: 0EBFCD88
+    - keyserver: keyserver.ubuntu.com
     - require_in:
       - pkg: containers_pkgs
 {% endif %}
