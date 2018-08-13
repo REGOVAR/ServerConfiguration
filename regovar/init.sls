@@ -59,6 +59,7 @@ regovar.makeinstall:
   cmd.run:
     - name: |
         sudo -u regovar make init_config
+        sed -i 's/^\(\s*HOST_P\s*=\s*"\)[^"]*\(".*\)/\1{{ pillar['public_hostname'] }}:{{ pillar['public_port'] }}\2/' ../regovar/config.py
         sed -i 's/^\(\s*DATABASE_NAME\s*=\s*"\)[^"]*\(".*\)/\1regovar\2/' ../regovar/config.py
         sed -i 's/^\(\s*DATABASE_HOST\s*=\s*"\)[^"]*\(".*\)/\1localhost\2/' ../regovar/config.py
         sed -i 's/^\(\s*PRIVATE_KEY32\s*=\s*"\)[^"]*\(".*\)/\1'"$(openssl rand -base64 40 | tr -d "=+/" | cut -c1-32)"'\2/' ../regovar/config.py
