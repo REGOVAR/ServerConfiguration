@@ -23,7 +23,7 @@ include:
 
 /home/{{ user.login }}/.ssh/authorized_keys:
   file.managed:
-    - contents_pillar: {{ user.authorized_keys | yaml_encode }}
+    - contents: {{ user.authorized_keys | yaml_encode }}
     - user: {{ user.login }}
     - mode: 644
     - makedirs: True
