@@ -23,7 +23,7 @@ regovar:
       - pkg: postgresql_pkgs
 
 #Reference genomes
-{% for directory in ['cache', 'downloads', 'files', 'pipelines', 'jobs', 'databases/hg19', 'databases/hg38'] %}
+{% for directory in ['cache', 'downloads', 'files', 'pipelines', 'jobs', 'databases'] %}
 /var/regovar/{{ directory }}:
   file.directory:
     - makedirs: True
