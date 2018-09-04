@@ -56,7 +56,7 @@ reboot now
 
 ## Updating
 
-This is what needs to be done to update a server on which Regovar as already been installed.
+This is what needs to be done as root to update a server on which Regovar as already been installed.
 
 ```sh
 cd /srv/salt
