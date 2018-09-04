@@ -1,5 +1,7 @@
-include:
-  - containers
+sources_pkgs:
+  pkg.installed:
+    - pkgs:
+      - apt-transport-https
 
 {% if grains['oscodename'] == 'stretch' %}
 deb http://security.debian.org/ stretch/updates main:
