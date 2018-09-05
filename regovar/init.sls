@@ -68,6 +68,7 @@ regovar.makeinstall:
         sudo -u regovar make fill_database
         make download_hpo
         sudo -u regovar make install_hpo
+        make install_service
     - require:
       - user: regovar
     - cwd: /home/regovar/Regovar/install
