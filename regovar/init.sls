@@ -35,7 +35,7 @@ regovar_net.create:
         docker network create -d bridge --scope local regovar_net
     - require:
       - pkg: containers_pkgs
-    - unless: docker ls | grep -q regovar_net
+    - unless: docker network ls | grep -q regovar_net
 
 #Reference genomes
 {% for directory in ['cache', 'downloads', 'files', 'pipelines', 'jobs', 'databases'] %}
