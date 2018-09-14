@@ -5,6 +5,7 @@ monitoring_pkgs:
       - lm-sensors
       - lsof
       - htop
+      - pv
       - smartmontools
       - strace
       - time
