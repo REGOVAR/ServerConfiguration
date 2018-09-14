@@ -22,6 +22,21 @@ regovar:
     - require:
       - pkg: postgresql_pkgs
 
+# With a recent version of SaltStack (>= 2017.7.0), the following would work
+#regovar_net:
+#  docker_network.present:
+#    - driver: bridge
+#    - scope: local
+
+# Until 2017.7.0 is available on supported distros, use this instead
+regovar_net.create:
+  cmd.run:
+    - name: |
+        docker network create -d bridge --scope local regovar_net
+    - require:
+      - pkg: containers_pkgs
+    - unless: docker ls | grep -q regovar_net
+
 #Reference genomes
 {% for directory in ['cache', 'downloads', 'files', 'pipelines', 'jobs', 'databases'] %}
 /var/regovar/{{ directory }}:
@@ -32,7 +47,6 @@ regovar:
     - dir_mode: 755
     - file_mode: 644
 {% endfor %}
-
 
 #Regovar
 #FIXME
@@ -75,4 +89,3 @@ regovar.makeinstall:
     - unless: test -f ../regovar/config.py
     - env:
       - LC_ALL: en_US.UTF-8
-
